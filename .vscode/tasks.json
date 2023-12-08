@@ -1,0 +1,36 @@
+{
+    "tasks": [
+        {
+            "type": "process",
+            "label": "Compile",
+            "command": "MinGW64\\bin\\g++.exe",
+            "args": [
+                "-std=c++11",
+                "-g",
+                "${relativeFileDirname}\\${fileBasename}",
+                "-o",
+                "out\\${fileBasenameNoExtension}",
+                "-static-libgcc",
+                "lib\\libfreeglut.a",
+                "lib\\libopengl32.a",
+                "lib\\libglu32.a",
+                "lib\\libbgi.a",
+                "lib\\libgdi32.a",
+                "lib\\libcomdlg32.a",
+                "lib\\libuuid.a",
+                "lib\\liboleaut32.a",
+                "lib\\libole32.a",
+            ],
+            "detail": "First task"
+        },
+        {
+            "type": "process",
+            "label": "Compile and Run",
+            "command": "out\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "dependsOn": "Compile",
+            "detail": "Final task"
+        },
+    ],
+    "version": "2.0.0"
+}
